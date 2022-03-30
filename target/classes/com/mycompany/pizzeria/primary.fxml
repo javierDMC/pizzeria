@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="750.0" prefWidth="1200.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.pizzeria.PrimaryController">
+   <children>
+      <Pane prefHeight="222.0" prefWidth="1160.0">
+         <children>
+            <ImageView fitHeight="790.0" fitWidth="1230.0" layoutX="-25.0" layoutY="-49.0" pickOnBounds="true">
+               <image>
+                  <Image url="@fondo_pizzeria.jpg" />
+               </image>
+            </ImageView>
+            <TextField editable="false" layoutX="-1.0" layoutY="-3.0" prefHeight="229.0" prefWidth="1166.0" />
+            <Label layoutX="980.0" layoutY="38.0" prefHeight="27.0" prefWidth="94.0" text="Tamaño">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="32.0" prefHeight="27.0" prefWidth="51.0" text="Masa">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="316.0" layoutY="32.0" prefHeight="27.0" prefWidth="43.0" text="Tipo">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="normal" layoutX="45.0" layoutY="80.0" mnemonicParsing="false" onAction="#pulsarMasa" text="Normal">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="masa" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="integral" layoutX="45.0" layoutY="119.0" mnemonicParsing="false" onAction="#pulsarMasa" text="Integral" toggleGroup="$masa">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </RadioButton>
+            <ComboBox fx:id="tipo" layoutX="246.0" layoutY="78.0" onAction="#elegirTipo" prefHeight="25.0" prefWidth="182.0" />
+            <Spinner fx:id="medida" layoutX="941.0" layoutY="78.0" onMouseClicked="#medida" />
+            <ListView fx:id="ingredientes" layoutX="580.0" layoutY="78.0" onMouseClicked="#extras" prefHeight="134.0" prefWidth="200.0" />
+            <Label layoutX="594.0" layoutY="18.0" prefHeight="27.0" prefWidth="161.0" text="Ingredientes extra">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="550.0" layoutY="51.0" text="(Mantén pulsado Control para seleccionar varios)" />
+         </children>
+      </Pane>
+      <Pane prefHeight="114.0" prefWidth="1160.0">
+         <children>
+            <Button fx:id="botonCalculo" layoutX="447.0" layoutY="36.0" onAction="#calcularPedido" prefHeight="41.0" prefWidth="267.0" text="Calcular PRECIO y PEDIDO" />
+         </children>
+      </Pane>
+      <Pane prefHeight="283.0" prefWidth="1160.0">
+         <children>
+            <Label fx:id="precioTotal" layoutX="893.0" layoutY="228.0" prefHeight="33.0" prefWidth="167.0">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Label>
+            <Label layoutX="755.0" layoutY="228.0" prefHeight="33.0" prefWidth="135.0" text="PRECIO TOTAL :">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="pedido" alignment="TOP_LEFT" editable="false" layoutY="11.0" prefHeight="211.0" prefWidth="1160.0" />
+            <Label layoutX="-1.0" layoutY="-25.0" prefHeight="41.0" prefWidth="73.0" text="PEDIDO">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="25.0" prefHeight="30.0" prefWidth="45.0" text="Masa:">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="50.0" prefHeight="30.0" prefWidth="37.0" text="Tipo:">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="75.0" prefHeight="30.0" prefWidth="127.0" text="Ingredientes extra:">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="100.0" prefHeight="30.0" prefWidth="62.0" text="Tamaño:">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="masaPedido" layoutX="59.0" layoutY="25.0" prefHeight="30.0" prefWidth="150.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="tipoPedido" layoutX="55.0" layoutY="50.0" prefHeight="30.0" prefWidth="161.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="extrasPedido" layoutX="141.0" layoutY="75.0" prefHeight="30.0" prefWidth="559.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="medidaPedido" layoutX="78.0" layoutY="100.0" prefHeight="30.0" prefWidth="150.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>
