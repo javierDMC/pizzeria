@@ -7,7 +7,6 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,12 +18,16 @@
    <children>
       <Pane prefHeight="222.0" prefWidth="1160.0">
          <children>
-            <ImageView fitHeight="790.0" fitWidth="1230.0" layoutX="-25.0" layoutY="-49.0" pickOnBounds="true">
+            <ImageView fitHeight="758.0" fitWidth="1208.0" layoutX="-25.0" layoutY="-49.0" pickOnBounds="true">
                <image>
                   <Image url="@fondo_pizzeria.jpg" />
                </image>
             </ImageView>
-            <TextField editable="false" layoutX="-1.0" layoutY="-3.0" prefHeight="229.0" prefWidth="1166.0" />
+            <Pane prefHeight="229.0" prefWidth="1160.0" style="-fx-background-color: white; -fx-border-color: black;">
+               <opaqueInsets>
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+               </opaqueInsets>
+            </Pane>
             <Label layoutX="980.0" layoutY="38.0" prefHeight="27.0" prefWidth="94.0" text="Tamaño">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -62,6 +65,11 @@
                </font>
             </Label>
             <Label layoutX="550.0" layoutY="51.0" text="(Mantén pulsado Control para seleccionar varios)" />
+            <Label layoutX="7.0" layoutY="341.0" prefHeight="41.0" prefWidth="73.0" text="PEDIDO">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Pane prefHeight="114.0" prefWidth="1160.0">
@@ -71,17 +79,16 @@
       </Pane>
       <Pane prefHeight="283.0" prefWidth="1160.0">
          <children>
+            <Pane layoutY="7.0" prefHeight="222.0" prefWidth="1160.0" style="-fx-background-color: white; -fx-border-color: black;">
+               <opaqueInsets>
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+               </opaqueInsets>
+            </Pane>
             <Label fx:id="precioTotal" layoutX="893.0" layoutY="228.0" prefHeight="33.0" prefWidth="167.0">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font></Label>
             <Label layoutX="755.0" layoutY="228.0" prefHeight="33.0" prefWidth="135.0" text="PRECIO TOTAL :">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="pedido" alignment="TOP_LEFT" editable="false" layoutY="11.0" prefHeight="211.0" prefWidth="1160.0" />
-            <Label layoutX="-1.0" layoutY="-25.0" prefHeight="41.0" prefWidth="73.0" text="PEDIDO">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

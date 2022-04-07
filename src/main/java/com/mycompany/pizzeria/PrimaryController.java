@@ -55,8 +55,6 @@ public class PrimaryController implements Initializable {
     @FXML
     private Label precioTotal;
     @FXML
-    private TextField pedido;
-    @FXML
     private Label masaPedido;
     @FXML
     private Label tipoPedido;
@@ -99,9 +97,9 @@ public class PrimaryController implements Initializable {
         precios.put("Tomate", 1.50);
         precios.put("Cebolla", 0.75);
         precios.put("Olivas", 1.00);
-        precios.put("Pequeña", 100.00);
-        precios.put("Mediana", 15.00);
-        precios.put("Familiar", 30.00);
+        precios.put("Pequeña", 1.00);
+        precios.put("Mediana", 1.15);
+        precios.put("Familiar", 1.30);
     }
 
     @FXML
@@ -141,16 +139,18 @@ public class PrimaryController implements Initializable {
     private void medida(MouseEvent event) {
 
         String medidaSeleccionada = medida.getValue();
+        
+//        medidaSeleccionada.startsWith(medidaSeleccionada);
 
         switch (medidaSeleccionada) {
             case "Pequeña":
                 medidaPedido.setText("Pequeña");
                 break;
             case "Mediana":
-                medidaPedido.setText("Mediana + " + precios.get("Mediana") + "% ");
+                medidaPedido.setText("Mediana + 15% ");
                 break;
             case "Familiar":
-                medidaPedido.setText("Familiar + " + precios.get("Familiar") + "% ");
+                medidaPedido.setText("Familiar + 30% ");
                 break;
         }
     }
@@ -169,7 +169,9 @@ public class PrimaryController implements Initializable {
         
         Double previaPrecio = (precioMasa + precioTipo + precioExtras);
         
-        precioPedido = previaPrecio + (previaPrecio * (precioMedida/100));
+        precioPedido = previaPrecio * precioMedida;
+        
+        precioPedido.shortValue();
         
         precioTotal.setText(precioPedido + " €");
     }
